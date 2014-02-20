@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <h1 class="col-xs-10 col-sm-10 col-md-11 col-lg-11"> 
+            {{ post.title }}
+        </h1>
+        <div
+            ng-show="canEdit()"
+            class="col-xs-2 col-sm-2 col-md-1 col-lg-1"
+        >
+            <button
+                class="btn btn-primary"
+                ng-click="edit()"
+                style="float: right;"
+            >Edit</button>
+        </div>
+    </div>
+    <h4> By <a href="{{ post.user.url }}"> {{ post.user.username }}</a> </h4>
+    <hr>
+    <p>
+        <span class="glyphicon glyphicon-time"></span>
+        Posted on {{ post.datePublished }}
+    </p>
+    <hr>
+    <markdown text="{{ post.text }}"></markdown>
+    <comment-section></comment-section>
+</div>

@@ -1,0 +1,6 @@
+django>=1.5
+djangorestless 
+django-cors-headers
+pillow
+stripe
+requests

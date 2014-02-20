@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Welcome to the Boulder Django Homepage!</h1>
+    <img
+        src="http://s0.uploads.im/HUqDg.jpg" 
+        class="img-responsive">
+    <br>
+    <blockquote>
+        <p> {{ caption }} </p>
+        <footer>Boulder Django Meetup Page</footer>
+    </blockquote>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <h3>Recent Posts</h3>
+        <div ng-repeat="post in posts">
+            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+            <p>{{ post.caption }}</p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <h3>New Jobs</h3>
+        <div ng-repeat="job in jobs">
+            <h4><a href="{{ job.url }}">{{ job.title }}</a>
+                at {{ job.company }}
+            </h4>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <h3>Latest Meetups</h3>
+        <div ng-repeat="meetup in meetups">
+            <h4><a href="{{ meetup.event_url }}">{{ meetup.title }}</a></h4>
+        </div>
+    </div>
+</div>

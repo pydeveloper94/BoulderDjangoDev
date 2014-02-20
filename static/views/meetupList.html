@@ -1,0 +1,20 @@
+<div class="container">
+    <div ng-repeat="meetup in meetups" class="row">
+        <h1><a href="{{ meetup.event_url }}"> {{ meetup.title }}</a></h1>
+        <h3>{{ meetup.date }} at {{ meetup.address }}</h3>
+        <p ng-bind-html="meetup.description">
+        </p>
+    </div>
+    <div class="row">
+        <button
+            class="btn btn-primary"
+            type="button"
+            ng-click="previous()"
+            style="float: left;">Previous</button>
+        <button 
+            class="btn btn-primary"
+            type="button"
+            ng-click="next()"
+            style="float: right;">Next</button>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="well">
+        <h4>Leave a Comment:</h4>
+        <form role="form">
+            <div class="form-group">
+                <textarea 
+                    class="form-control"
+                    rows="3"
+                    ng-model="newCommentText"
+                ></textarea>
+            </div>
+            <button
+                type="submit"
+                class="btn btn-primary"
+                ng-click="submit()"
+            >Submit</button>
+        </form>
+    </div>
+    <hr>
+    <div ng-repeat="comment in comments" >
+        <div class="row" style="margin-bottom: 15px;">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                <img ng-src="{{comment.user.image}}" class="img-responsive">
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">
+                <h3>{{ comment.user.username }}
+                    <small>{{ comment.date_updated }}</small> 
+                </h3>
+                <p>{{ comment.text }}</p>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <button 
+                    class="btn btn-primary"
+                    ng-show="canEditComment($index)"
+                    ng-click="edit($index)"
+                >Edit</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button
+            class="btn btn-primary"
+            type="button"
+            ng-click="previous()"
+            style="float: left;">Previous</button>
+        <button 
+            class="btn btn-primary"
+            type="button" ng-click="next()"
+            style="float: right;">Next</button>
+    </div>
+    <div class="modal fade" id="commentEditDialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                        type="button"
+                        class="close"
+                        ng-click="cancelEdit()"
+                        aria-hidden="true"
+                    >&times;</button>
+                    <h4 class="modal-title">Edit your comment</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea 
+                        class="form-control"
+                        rows="5"
+                        ng-model="editCommentText"
+                    ></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-danger"
+                        ng-click="delete()"
+                    >Delete</button>
+                    <button
+                        type="button"
+                        class="btn btn-success"
+                        ng-click="saveEdit()"
+                    >Save Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

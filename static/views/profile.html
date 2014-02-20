@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <img ng-src="{{ image }}">
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"> 
+            <h1> {{ greeting() }} </h1>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2>Recent posts</h2>
+            <div ng-repeat="post in profile.posts">
+                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                <p>{{ post.caption }}</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="row">
+                <h3>Email:</h3> <p>{{ email }}</p>
+            </div>
+            <div class="row">
+                <h3>Website:</h3> <p>{{ website }}</p>
+            </div>
+            <div class="row">
+                <h3>Job:</h3><p>{{ jobTitle }}</p>
+            </div>
+            <div class="row">
+                <h3>Company:</h3><p>{{ company }}</p>
+            </div>
+            <div class="row">
+                <h3>Interests:</h3> <p>{{ interests }}</p>
+            </div>
+            <a
+                href="#/profile/edit/"
+                role="button"
+                ng-show="isProfile()"
+                class="btn btn-primary">Edit Profile</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+<div class="container bordered-container">
+    <div class="row">
+        <div class="col-md-2 col-lg-3"></div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+            <h1>Edit your profile</h1>
+            <form role="form">
+                <div class="form-group">
+                    <label for="userUsername">Username</label>
+                    <input
+                        type="text"
+                        id="userUsername"
+                        class="form-control"
+                        placeholder="{{ username }}"
+                        ng-model="username">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input 
+                        type="text"
+                        id="userEmail"
+                        class="form-control"
+                        placeholder="{{ email }}"
+                        ng-model="email">
+                </div>
+                <div class="form-group">
+                    <label for="userWebsite">Website</label>
+                    <input
+                        type="text"
+                        id="userWebsite"
+                        class="form-control"
+                        placeholder="{{ website }}"
+                        ng-model="website">
+                </div>
+                <div class="form-group">
+                    <label for="userJob">Job</label>
+                    <input
+                        type="text"
+                        id="userJob"
+                        class="form-control"
+                        placeholder="{{ jobTitle }}"
+                        ng-model="jobTitle">
+                </div>
+                <div class="form-group">
+                    <label for="userJob">Company</label>
+                    <input
+                        type="text"
+                        id="userJob"
+                        class="form-control"
+                        placeholder="{{ company }}"
+                        ng-model="company">
+                </div>
+                <div class="form-group">
+                    <label for="userInterests">Interests</label>
+                    <textarea
+                        id="userInterests"
+                        ng-model="interests"
+                        class="form-control"
+                        rows="4"
+                        placeholder="{{ interests }}"></textarea>
+                </div>
+                <button
+                    type="submit"
+                    ng-click="save()"
+                    class="btn btn-primary">Update Profile</button>
+                <button
+                    type="submit"
+                    data-toggle="modal"
+                    data-target="#imageModal"
+                    class="btn btn-info">Upload Image</button>
+            </form>
+        </div>
+        <div class="col-md-2 col-lg-3"></div>
+    </div>
+</div>
+<div
+    class="modal fade"
+    id="imageModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="uploadImageHeader"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true">&times;</button>
+                <h3 class="uploadImageHeader">Upload an image</h3> 
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input
+                        type="file"
+                        class="btn btn-default"
+                        id="imageInput"
+                        onchange="angular.element(this).scope().viewImage(this.files[0])">
+                </div>
+                <br>
+                <div class="row">
+                    <img class="img-responsive" ng-src="{{ image }}">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

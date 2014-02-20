@@ -1,0 +1,29 @@
+<div class="container">
+    <div ng-repeat="job in jobs" style="margin-bottom: 15px;">
+        <div class="row">
+            <h2> Work at 
+            <a href="{{ job.company_url }}">{{ job.company }}</a> 
+            being a(n) 
+            <a href="{{ job.url }}">{{ job.title }}</a>
+            </h2>
+            <markdown text="{{ job.short_description }}"></markdown>
+            <a href="{{ job.url }}">
+                <button
+                    class="btn btn-primary"
+                    type="button"
+                    style="float: left;">More information</button>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <button
+            class="btn btn-primary"
+            type="button"
+            ng-click="previous()"
+            style="float: left;">Previous</button>
+        <button 
+            class="btn btn-primary"
+            type="button" ng-click="next()"
+            style="float: right;">Next</button>
+    </div>
+</div>
